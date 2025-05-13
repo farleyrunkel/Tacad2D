@@ -1,4 +1,4 @@
-// Copyright [2024] SunCAD
+// Copyright [2025] TaCAD
 
 // Own include
 #include "Core/Document.hxx"

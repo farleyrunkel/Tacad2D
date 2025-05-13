@@ -1,4 +1,4 @@
-// Copyright [2024] SunCAD
+// Copyright [2025] TaCAD
 
 #ifndef _SIGNAL_Header_File_
 #define _SIGNAL_Header_File_

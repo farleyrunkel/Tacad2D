@@ -1,4 +1,4 @@
-// Copyright [2024] FaCAD
+// Copyright [2025] TaCAD
 
 // Own include
 #include "App/MainWindow.hxx"
@@ -65,7 +65,7 @@ void MainWindow::onMainWindowLoaded()
 
 void MainWindow::setupUi()
 {
-    setWindowTitle(tr("SunCAD"));
+    setWindowTitle(tr("TaCAD"));
     setWindowIcon(ResourceUtils::icon("App/App-MainLogo"));
     setStatusBar(new QStatusBar());
 

@@ -1,4 +1,4 @@
-// Copyright [2024] FaCAD
+// Copyright [2025] TaCAD
 
 #ifndef APP_COMMANDLINE_H_
 #define APP_COMMANDLINE_H_

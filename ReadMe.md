@@ -8,6 +8,8 @@
 
 **Tacad2D** is a cross-platform 2D CAD application built on the [Open CASCADE Technology (OCCT)](https://dev.opencascade.org/) OCAF framework. By leveraging OCCT's label-based data model, Tacad2D provides structured, efficient, and precise 2D design tools for engineers, architects, and developers. It supports the creation of mechanical schematics, architectural layouts, circuit diagrams, and other technical drawings.
 
+![Tacad2D](./doc/screenshot.png)
+
 ## Key Features
 
 * **OCAF Label-Driven Design**: Uses OCCT's OCAF for organizing geometry, attributes, and relationships through hierarchical labels, enabling intuitive and scalable data management.

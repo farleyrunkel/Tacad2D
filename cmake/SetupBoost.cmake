@@ -1,4 +1,4 @@
-# Copyright [2024] FaCAD
+# Copyright [2025] TaCAD
 
 set(_boost_TEST_VERSIONS ${Boost_ADDITIONAL_VERSIONS})
 

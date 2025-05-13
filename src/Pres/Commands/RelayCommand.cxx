@@ -1,4 +1,4 @@
-// Copyright [2024] SunCAD
+// Copyright [2025] TaCAD
 
 // Own includes
 #include "Pres/Commands/RelayCommand.hxx"

@@ -1,4 +1,4 @@
-﻿// Copyright [2024] SunCAD
+﻿// Copyright [2025] TaCAD
 
 #ifndef OCCT_OCCTEXTENSIONS_AIS_POINTEX_H_
 #define OCCT_OCCTEXTENSIONS_AIS_POINTEX_H_

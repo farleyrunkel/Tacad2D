@@ -1,4 +1,4 @@
-// Copyright [2024] SunCAD
+// Copyright [2025] TaCAD
 
 #ifndef CORE_WORKSPACE_H_
 #define CORE_WORKSPACE_H_

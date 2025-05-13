@@ -1,4 +1,4 @@
-# Copyright [2024] FaCAD
+# Copyright [2025] TaCAD
 
 set(SARibbonBar_DIR "E:/Binaries/SARibbon-2.2.6/bin_qt6.5.3_MSVC_x64/lib/cmake/SARibbonBar")
 

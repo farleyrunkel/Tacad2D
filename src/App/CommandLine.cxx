@@ -1,4 +1,4 @@
-// Copyright [2024] FaCAD
+// Copyright [2025] TaCAD
 
 // Project includes
 #include "App/CommandLine.hxx"

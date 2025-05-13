@@ -1,4 +1,4 @@
-﻿// Copyright [2024] SunCAD
+﻿// Copyright [2025] TaCAD
 
 #include "Occt/AisExtensions/AISX_Grid.hxx"
 

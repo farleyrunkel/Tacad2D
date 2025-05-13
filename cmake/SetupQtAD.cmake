@@ -1,4 +1,4 @@
-# Copyright [2024] FaCAD
+# Copyright [2025] TaCAD
 
 
 set(qtadvanceddocking-qt6_DIR "E:/Sources/Qt-Advanced-Docking-System/out/install/x64-Debug/lib/cmake/qtadvanceddocking-qt6")

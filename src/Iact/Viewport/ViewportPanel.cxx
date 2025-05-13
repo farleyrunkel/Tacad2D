@@ -1,4 +1,4 @@
-// Copyright [2024] SunCAD
+// Copyright [2025] TaCAD
 
 // Own Libraries
 #include "Iact/Viewport/ViewportPanel.hxx"

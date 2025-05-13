@@ -1,4 +1,4 @@
-// Copyright [2024] FaCAD
+// Copyright [2025] TaCAD
 
 #ifndef COMM_OCCHANDLE_H_
 #define COMM_OCCHANDLE_H_

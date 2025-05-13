@@ -1,4 +1,4 @@
-// Copyright [2024] FaCAD
+// Copyright [2025] TaCAD
 
 #ifndef APP_VIEWPORTVIEW_H_
 #define APP_VIEWPORTVIEW_H_

@@ -1,4 +1,4 @@
-// Copyright [2024] FaCAD
+// Copyright [2025] TaCAD
 
 #ifndef _GuiApplication_Header_File_
 #define _GuiApplication_Header_File_

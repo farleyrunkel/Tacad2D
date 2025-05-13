@@ -1,4 +1,4 @@
-﻿// Copyright [2024] SunCAD
+﻿// Copyright [2025] TaCAD
 
 #ifndef OCCT_AISEXTENSIONS_AISX_GRID_H_
 #define OCCT_AISEXTENSIONS_AISX_GRID_H_

@@ -1,4 +1,4 @@
-// Copyright [2024] SunCAD
+// Copyright [2025] TaCAD
 
 #ifndef CORE_TOPOLOGY_MODEL_H_
 #define CORE_TOPOLOGY_MODEL_H_

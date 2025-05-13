@@ -1,4 +1,4 @@
-// Copyright [2024] FaCAD
+// Copyright [2025] TaCAD
 
 // Own include
 #include "App/GuiApplication.hxx"

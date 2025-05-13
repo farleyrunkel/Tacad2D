@@ -1,4 +1,4 @@
-# Copyright [2024] FaCAD
+# Copyright [2025] TaCAD
 
 find_package(RTTR CONFIG REQUIRED Core)
 

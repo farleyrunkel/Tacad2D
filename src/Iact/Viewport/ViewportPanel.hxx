@@ -1,4 +1,4 @@
-// Copyright [2024] SunCAD
+// Copyright [2025] TaCAD
 
 #ifndef IACT_VIEWPORT_VIEWPORTPANEL_H_
 #define IACT_VIEWPORT_VIEWPORTPANEL_H_

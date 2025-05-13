@@ -1,4 +1,4 @@
-// Copyright [2024] SunCAD
+// Copyright [2025] TaCAD
 
 #ifndef IACT_HUD_ELEMENTS_HUDELEMENT_H_
 #define IACT_HUD_ELEMENTS_HUDELEMENT_H_

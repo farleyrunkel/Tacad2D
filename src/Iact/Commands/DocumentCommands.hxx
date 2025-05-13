@@ -1,4 +1,4 @@
-// Copyright [2024] FaCAD
+// Copyright [2025] TaCAD
 
 #ifndef _DocumentCommands_Header_File_
 #define _DocumentCommands_Header_File_

@@ -1,4 +1,4 @@
-// Copyright [2024] SunCAD
+// Copyright [2025] TaCAD
 
 #ifndef CORE_VIEWPORT_H_
 #define CORE_VIEWPORT_H_

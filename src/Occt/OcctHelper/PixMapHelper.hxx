@@ -1,4 +1,4 @@
-// Copyright [2024] SunCAD
+// Copyright [2025] TaCAD
 
 #ifndef OCCT_OCCTHELPER_PIXMAPHELPER_H_
 #define OCCT_OCCTHELPER_PIXMAPHELPER_H_

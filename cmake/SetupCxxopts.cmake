@@ -1,4 +1,4 @@
-# Copyright [2024] FaCAD
+# Copyright [2025] TaCAD
 
 set(cxxopts_DIR "E:/Scoop/apps/vcpkg/current/installed/x64-windows/share/cxxopts")
 # cmd> vcpkg install cxxopts
