@@ -15,13 +15,23 @@
 
 #include "Iact/InteractiveContext.hxx"
 #include "Iact/WorkspaceController.hxx"
-#include "Iact/Snapping/SnapBase.hxx"
+#include "Iact/Workspace/SnapBase.hxx"
 
-// 捕捉模式枚举
-enum class SnapModes
+class SnapInfoCurve2D
 {
-    None = 0,
-    Edge = 1 << 0
+public:
+    SnapModes Mode;
+    gp_Pnt2d Point;
+    double Parameter;
+    double TargetParameter;
+    TopoDS_Shape TargetBrepShape;
+    Handle(AIS_InteractiveObject) TargetAisObject;
+
+    SnapInfoCurve2D(SnapModes mode, const gp_Pnt2d& point, double param)
+        : Mode(mode), Point(point), Parameter(param), TargetParameter(0)
+    {}
+
+    static const std::shared_ptr<SnapInfoCurve2D> Empty;
 };
 
 // 2D曲线捕捉处理器，支持边捕捉
@@ -30,7 +40,7 @@ class SnapOnCurve2D : public SnapBase
 public:
     // 构造函数
     SnapOnCurve2D()
-        : _SupportedModes(static_cast<int>(SnapModes::Edge))
+        : _SupportedModes(SnapMode::Edge)
     {}
 
     // 析构函数
@@ -64,7 +74,7 @@ protected:
 
 private:
     // 处理边捕捉
-    gp_Pnt2d ProcessSnap(const Handle(Geom2d_Curve)& curve, const Handle(TopoDS_Shape)& shapeToSnap)
+    gp_Pnt2d ProcessSnap(const Handle(Geom2d_Curve)& curve, const TopoDS_Shape& shapeToSnap)
     {
         if(!InteractiveContext::Current()->GetEditorState()->IsSnappingEnabled() ||
            !InteractiveContext::Current()->GetEditorState()->IsSnapToEdgeSelected())
@@ -72,9 +82,9 @@ private:
             return gp_Pnt2d(0.0, 0.0);
         }
 
-        if(!shapeToSnap.IsNull() && shapeToSnap->ShapeType() == TopAbs_ShapeEnum::TopAbs_EDGE)
+        if(!shapeToSnap.IsNull() && shapeToSnap.ShapeType() == TopAbs_ShapeEnum::TopAbs_EDGE)
         {
-            TopoDS_Edge edge = TopoDS::Edge(*shapeToSnap);
+            TopoDS_Edge edge = TopoDS::Edge(shapeToSnap);
             double umin, umax;
             Handle(Geom_Curve) edgeCurve = BRep_Tool::Curve(edge, umin, umax);
             if(edgeCurve.IsNull() && BRepLib::BuildCurve3d(edge))
@@ -99,7 +109,7 @@ private:
 private:
     gp_Pln _Plane; // 捕捉平面
     bool _IsPlaneSet = false; // 标记平面是否被设置
-    int _SupportedModes; // 支持的捕捉模式
+    SnapModes _SupportedModes; // 支持的捕捉模式
 };
 
 DEFINE_STANDARD_HANDLE(SnapOnCurve2D, SnapBase)

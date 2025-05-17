@@ -15,10 +15,7 @@ class Snap3D : public SnapBase
 public:
     Snap3D()
     {
-        SetSupportedModes(static_cast<SnapModes>(
-            static_cast<int>(SnapModes::Grid) |
-            static_cast<int>(SnapModes::Vertex) |
-            static_cast<int>(SnapModes::Edge)));
+        SetSupportedModes(SnapMode::Grid | SnapMode::Vertex | SnapMode::Edge);
     }
 
     DEFINE_STANDARD_RTTIEXT(Snap3D, SnapBase)
@@ -28,7 +25,7 @@ public:
         SnapInfo snapInfo;
 
         auto [mode, point] = SnapToShape(screenPoint, shape);
-        if(mode != SnapModes::None)
+        if(mode != SnapMode::None)
         {
             snapInfo.mode = mode;
             snapInfo.point = point;

@@ -23,17 +23,10 @@
 #include <TopoDS_Shape.hxx>
 #include <TopoDS_Vertex.hxx>
 
+#include "Iact/Workspace/SnapMode.hxx"
+
 class WorkspaceController;
 
-// 捕捉模式枚举
-enum class SnapModes
-{
-    None = 0,
-    Grid = 1 << 0,
-    Vertex = 1 << 1,
-    Edge = 1 << 2,
-    Face = 1 << 3
-};
 
 // 捕捉信息结构体
 struct SnapInfo
@@ -42,7 +35,7 @@ struct SnapInfo
     gp_Pnt point;
     std::string targetName;
 
-    SnapInfo(SnapModes m = SnapModes::None, const gp_Pnt& p = gp_Pnt())
+    SnapInfo(SnapModes m = SnapMode::None, const gp_Pnt& p = gp_Pnt())
         : mode(m), point(p), targetName("")
     {}
 
@@ -64,7 +57,7 @@ public:
 class SnapBase : public Standard_Transient, public ISnapHandler
 {
 public:
-    SnapBase() : supportedModes_(SnapModes::None), currentInfo_(SnapInfo::Empty) {}
+    SnapBase() : supportedModes_(SnapMode::None), currentInfo_(SnapInfo::Empty) {}
     virtual ~SnapBase() = default;
 
     DEFINE_STANDARD_RTTIEXT(SnapBase, Standard_Transient)
@@ -82,16 +75,16 @@ protected:
     {
         if(shape.IsNull())
         {
-            return {SnapModes::None, gp_Pnt()};
+            return {SnapMode::None, gp_Pnt()};
         }
 
-        if(HasFlag(supportedModes_, SnapModes::Vertex) && shape.ShapeType() == TopAbs_VERTEX)
+        if((supportedModes_ & SnapMode::Vertex) && shape.ShapeType() == TopAbs_VERTEX)
         {
             TopoDS_Vertex vertex = TopoDS::Vertex(shape);
-            return {SnapModes::Vertex, BRep_Tool::Pnt(vertex)};
+            return {SnapMode::Vertex, BRep_Tool::Pnt(vertex)};
         }
 
-        if(HasFlag(supportedModes_, SnapModes::Edge) && shape.ShapeType() == TopAbs_EDGE)
+        if((supportedModes_ & SnapMode::Edge) && shape.ShapeType() == TopAbs_EDGE)
         {
             TopoDS_Edge edge = TopoDS::Edge(shape);
             Standard_Real umin, umax;
@@ -110,37 +103,31 @@ protected:
                 {
                     gp_Pnt p1, p2;
                     extrema.NearestPoints(p1, p2);
-                    return {SnapModes::Edge, p1};
+                    return {SnapMode::Edge, p1};
                 }
             }
         }
 
-        return {SnapModes::None, gp_Pnt()};
+        return {SnapMode::None, gp_Pnt()};
     }
 
     std::pair<SnapModes, gp_Pnt> SnapToAisObject(const Graphic3d_Vec2i& Graphic3d_Vec2i, const Handle(AIS_InteractiveObject)& aisObject)
     {
         if(aisObject.IsNull())
         {
-            return {SnapModes::None, gp_Pnt()};
+            return {SnapMode::None, gp_Pnt()};
         }
 
-        if(HasFlag(supportedModes_, SnapModes::Vertex))
+        if((supportedModes_ & SnapMode::Vertex))
         {
             Handle(AIS_Point) aisPoint = Handle(AIS_Point)::DownCast(aisObject);
             if(!aisPoint.IsNull())
             {
-                return {SnapModes::Vertex, aisPoint->Component()->Pnt()};
+                return {SnapMode::Vertex, aisPoint->Component()->Pnt()};
             }
         }
 
-        return {SnapModes::None, gp_Pnt()};
-    }
-
-    // 辅助函数：检查标志位
-    bool HasFlag(SnapModes modes, SnapModes flag) const
-    {
-        return (static_cast<int>(modes) & static_cast<int>(flag)) != 0;
+        return {SnapMode::None, gp_Pnt()};
     }
 
 protected:

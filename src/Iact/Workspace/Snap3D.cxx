@@ -20,7 +20,7 @@ SnapInfo Snap3D::Snap(const Handle(MouseEventData)& mouseEvent)
 
 	snapInfo = Snap(screenPoint, shape, aisObject);
 
-	if(snapInfo.mode != SnapModes::None)
+	if(snapInfo.mode != SnapMode::None)
 	{
 		snapInfo.targetName = mouseEvent->GetDetectedEntity()->get_type_name();
 	}
