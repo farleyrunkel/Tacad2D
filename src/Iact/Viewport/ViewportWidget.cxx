@@ -25,15 +25,15 @@
 ViewportWidget::ViewportWidget(const Handle(ViewportController)& controller, QWidget* parent)
     : QOpenGLWidget(parent)
     , m_viewportController(controller)
-    , myContext(controller->viewport()->GetWorkspace()->AisContext())
-    , myView(controller->viewport()->V3dView())
-    , myViewer(controller->viewport()->GetWorkspace()->V3dViewer())
-    , myFocusView(controller->focusView())
+    , myContext(controller->GetViewport()->GetWorkspace()->AisContext())
+    , myView(controller->GetViewport()->V3dView())
+    , myViewer(controller->GetViewport()->GetWorkspace()->V3dViewer())
+    , myFocusView(controller->FocusView())
     , myIsCoreProfile(true)
 {
-    m_viewportController->setOpenglWidget(this);
+    m_viewportController->SetOpenglWidget(this);
 
-    myViewCube = m_viewportController->viewCube();
+    myViewCube = m_viewportController->ViewCube();
 
     // Qt widget setup
     setMouseTracking(true);

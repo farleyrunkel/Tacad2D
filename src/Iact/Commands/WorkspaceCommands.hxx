@@ -108,7 +108,7 @@ public:
                 commands.emplace_back(std::make_shared<ActionCommand>(
                     [i](const auto& param) {
                     auto VC = InteractiveContext::Current()->GetViewportController();
-                    VC->setPredefinedView(static_cast<ViewportController::PredefinedViews>(std::any_cast<int>(param)));
+                    VC->SetPredefinedView(static_cast<ViewportController::PredefinedViews>(std::any_cast<int>(param)));
                 },
                     [](const auto&) { return !InteractiveContext::Current()->GetViewportController().IsNull(); }
                 ));
@@ -220,7 +220,7 @@ public:
     {
         static ActionCommand command(
             [](const auto& mode) {
-            auto viewport = InteractiveContext::Current()->GetViewportController()->viewport();
+            auto viewport = InteractiveContext::Current()->GetViewportController()->GetViewport();
             if(!viewport.IsNull())
             {
                 viewport->SetRenderMode(std::any_cast<Viewport::RenderModes>(mode));

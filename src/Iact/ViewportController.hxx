@@ -42,7 +42,7 @@ public:
 	explicit ViewportController(const Handle(Viewport)& viewport,
 								const Handle(WorkspaceController)& workspacecontroller);
 
-	void setPredefinedView(PredefinedViews predefinedView);
+	void SetPredefinedView(PredefinedViews predefinedView);
 
 	void ZoomFitAll() {
 		FitAllAuto(m_workspaceController->workspace()->AisContext(), m_viewport->V3dView());
@@ -63,24 +63,24 @@ public:
 		m_viewport->OnViewMoved();
 	}
 
-	Handle(Viewport) viewport() const
+	Handle(Viewport) GetViewport() const
 	{
 		return m_viewport;
 	}
 
-	Handle(WorkspaceController) workspaceController() const
+	Handle(WorkspaceController) GetWorkspaceController() const
 	{
 		return m_workspaceController;
 	}
 
-	void setOpenglWidget(ViewportWidget* widget);
+	void SetOpenglWidget(ViewportWidget* widget);
 
-	Handle(AIS_ViewCube) viewCube() const
+	Handle(AIS_ViewCube) ViewCube() const
 	{
 		return _AisViewCube;
 	}
 
-	Handle(V3d_View) focusView() const
+	Handle(V3d_View) FocusView() const
 	{
 		return myFocusView;
 	}

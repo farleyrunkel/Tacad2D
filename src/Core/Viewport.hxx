@@ -25,7 +25,7 @@
 // Project includes
 #include "Core/Workspace.hxx"
 
-class Viewport : public Standard_Transient, public EnablePropertyChanged
+class Viewport : public Standard_Transient
 {
 public:
 	DEFINE_ATTRIBUTE_ON_CHILD(1, TDataXtd_Point, EyePoint)

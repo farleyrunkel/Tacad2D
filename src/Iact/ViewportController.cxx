@@ -37,7 +37,7 @@ ViewportController::ViewportController(const Handle(Viewport)& viewport,
 						   AIS_MouseGesture_Zoom);
 }
 
-void ViewportController::setPredefinedView(PredefinedViews predefinedView)
+void ViewportController::SetPredefinedView(PredefinedViews predefinedView)
 {
 	if(predefinedView == PredefinedViews::WorkingPlane)
 	{
@@ -78,7 +78,7 @@ void ViewportController::setPredefinedView(PredefinedViews predefinedView)
 	m_viewport->OnViewMoved();
 }
 
-void ViewportController::setOpenglWidget(ViewportWidget* widget)
+void ViewportController::SetOpenglWidget(ViewportWidget* widget)
 {
 	m_viewportWidget = widget;
 

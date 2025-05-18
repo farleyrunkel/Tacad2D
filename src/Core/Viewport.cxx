@@ -212,7 +212,7 @@ double Viewport::GetScale() const
     auto aAttr = ScaleAttribute();
     if(aAttr.IsNull())
     {
-        TDataStd_Real::Set(ScaleLabel(), 100.0);
+        TDataStd_Real::Set(ScaleLabel(), 1.0);
     }
     return ScaleAttribute()->Get();
 }

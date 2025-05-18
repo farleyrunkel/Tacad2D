@@ -70,7 +70,7 @@ private:
 			layout()->removeWidget(myViewportHwndHost);
 			myViewportHwndHost->deleteLater();
 		}
-
+		theCV->GetViewport()->SetDpiScale(1.0f);
 		myViewportHwndHost = new ViewportWidget(theCV);
 
 		layout()->addWidget(myViewportHwndHost);

@@ -51,7 +51,7 @@ void WorkspaceController::InitWorkspace()
 	m_workspace->GridChanged.connect([this](const auto&) {
 		_GridNeedsUpdate = true;
 		_UpdateGrid();
-		InteractiveContext::Current()->GetViewportController()->viewport()->OnViewMoved();
+		InteractiveContext::Current()->GetViewportController()->GetViewport()->OnViewMoved();
 	});
 
 	myGrid = new AISX_Grid();
@@ -188,7 +188,7 @@ Handle(ViewportController) WorkspaceController::GetViewportController(const Hand
 {
 	for(const auto& controller : m_viewportControllers)
 	{
-		if(controller->viewport() == viewport)
+		if(controller->GetViewport() == viewport)
 		{
 			return controller;
 		}
@@ -201,7 +201,7 @@ bool WorkspaceController::onMouseMove(const Handle(ViewportController)& theViewp
 	m_mouseEventData->Clear();
 
 	auto aMousePos = theViewportController->LastMousePosition();
-	auto viewport = theViewportController->viewport();
+	auto viewport = theViewportController->GetViewport();
 
 	if(!viewport->ScreenToPoint(m_workspace->WorkingPlane(), aMousePos.x(), aMousePos.y(), aPlanePoint));
 
