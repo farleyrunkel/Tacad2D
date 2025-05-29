@@ -99,14 +99,15 @@ private:
                               int screenPointY)
     {
         SnapInfoCurve2D snapInfo;
-        double currentDistance = 10.0;
+        double currentDistance = 0.1;
+
         return snapInfo;
     }
 
 private:
-    gp_Pln _Plane; // 捕捉平面
-    SnapModes SupportedModes; // 支持的捕捉模式
-    bool _IsPlaneSet = false; // 标记平面是否被设置
+    gp_Pln _Plane;
+    SnapModes SupportedModes;
+    bool _IsPlaneSet = false;
 };
 
 DEFINE_STANDARD_HANDLE(SnapOnCurve2D, SnapBase)
